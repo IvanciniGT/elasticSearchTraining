@@ -1,0 +1,34 @@
+DELETE /myindex
+
+PUT /myindex 
+{
+  "settings": {
+    "number_of_shards": 5,
+    "number_of_replicas": 2
+  }
+}
+
+POST /myindex/_doc
+{
+  "user": "Ivan",
+  "age": 43,
+  "email": "ivan@ivan.com"
+}
+
+POST /myindex/_doc
+{
+  "product": "Notebook",
+  "weight": "1Kg",
+  "price": 5
+}
+
+POST /myindex/_doc
+{
+  "type": "ERROR",
+  "msg": "Database is not running",
+  "server": "192.168.1.200"
+}
+
+GET /myindex
+
+GET /myindex/_search
