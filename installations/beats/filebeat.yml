@@ -1,0 +1,10 @@
+filebeat.inputs:
+
+- type: filestream
+  id: my-filestream-id
+  enabled: true
+  paths:
+    - /logs/access_log
+
+output.elasticsearch:
+  hosts: ["172.31.3.117:8080"]

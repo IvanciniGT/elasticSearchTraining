@@ -1,0 +1,26 @@
+{
+  "@timestamp": "2022-11-14T20:15:54.485Z",
+  "message": "172.17.0.1 - - [14/Nov/2022:20:15:50 +0000] \"GET / HTTP/1.1\" 200 45 \"-\" \"curl/7.58.0\"",
+  "input": {
+    "type": "filestream"
+  },
+  "ecs": {
+    "version": "8.0.0"
+  },
+  "host": {
+    "name": "b2de98577050"
+  },
+  "agent": {
+    "id": "7e3e0b77-15aa-40b0-95d0-aad68d98acea",
+    "name": "b2de98577050",
+    "type": "filebeat",
+    "version": "8.5.0",
+    "ephemeral_id": "dd1d42f4-7d46-4832-9afe-1de2eb5b0dd2"
+  },
+  "log": {
+    "offset": 870,
+    "file": {
+      "path": "/logs/access_log"
+    }
+  }
+}
