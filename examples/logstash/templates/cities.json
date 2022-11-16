@@ -1,0 +1,12 @@
+
+{
+    "index_patterns": "world-cities*",
+    
+    "mappings": {
+        "properties": {
+            "population": { "type": "long" },
+            "coordinates": { "type": "geo_point" },
+            "accentcity": { "type": "text" }
+        }
+    }    
+}
