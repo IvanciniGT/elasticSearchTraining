@@ -1,0 +1,30 @@
+{
+    "host" => {
+        "name" => "902cdbc18386"
+    },
+    "agent" => {
+                  "id" => "3f35b6ec-f089-4b55-82ef-d952909d79e4",
+        "ephemeral_id" => "52d84891-a828-47b3-bddf-d30d670d4e8d",
+                "name" => "902cdbc18386",
+                "type" => "filebeat",
+             "version" => "8.5.0"
+    },
+    "log" => {
+        "offset" => 503,
+          "file" => {
+            "path" => "/data/sample_cities.csv"
+        }
+    },
+    "message" => "ad,andorre-la-vieille,Andorre-la-Vieille,07,,42.5,1.5166667",
+    "@version" => "1",
+    "@timestamp" => 2022-11-17T19:43:24.197Z,
+    "input" => {
+        "type" => "filestream"
+    },
+    "ecs" => {
+        "version" => "8.0.0"
+    },
+    "tags" => [
+        [0] "beats_input_codec_plain_applied"
+    ]
+}
