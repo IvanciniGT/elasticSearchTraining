@@ -225,6 +225,36 @@ Website
                                                 ---->   Logstash3 ----> ElasticSearch 2         <<<<<   Kibana 2
                                                         transform 
 
+Kubernetes Cluster
+    Machine 1
+        crio
+            Pod 1
+                Apache container
+                    VOLUME ^    100kb    40Kb access_log1
+                     RAM   v             40Kb access_log2
+                Filebeat container
+    Machine 2
+        crio
+            Pod 2
+                Apache container
+                Filebeat container
+    Machine 3
+        crio
+    ...
+    Machine n
+        crio
+            Pod 3
+                Apache container
+                Filebeat container
+    
+Hey Kubernetes, I want to have 3 Apaches running in the cluster as PODs
+Each apache has to go with a filebeat 
+A POD is a set of containers, that:
+- they are all installed in the same machine
+- they share network configuration
+- they can share volumes... so files
+
+
 Kafka is not an Elastic Product. It is an Apache project. Kafka is a messaging broker.
 
     Each entry(line) in those log files is going to be a JSON DOCUMENT 

@@ -1,0 +1,10 @@
+filebeat.inputs:
+
+- type: filestream
+  id: my-filestream-id
+  enabled: true
+  paths:
+    - /data/sample_cities.csv
+
+output.logstash:
+  hosts: ["172.31.3.117:5044"]
