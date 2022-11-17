@@ -1,10 +1,12 @@
 
 {
-    "index_patterns": "world-cities*",
+    "index_patterns": "apache-*",
     
     "mappings": {
         "properties": {
-            # "population": { "type": "long" }, #
+            "clientip": { "type": "ip" },
+            "response": { "type": "long" },
+            "bytes": { "type": "long" },
             "geoip": { 
                 "properties": {
                     "location": "geo_point" 
