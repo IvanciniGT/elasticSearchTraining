@@ -1,0 +1,11 @@
+{
+     "population" => 20430,
+    "coordinates" => [
+        [0] 1.5166667,
+        [1] 42.5
+    ],
+           "city" => "andorra la vella",
+        "country" => "ad",
+         "region" => "07",
+     "accentcity" => "Andorra la Vella"
+}
