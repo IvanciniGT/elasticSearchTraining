@@ -1,0 +1,15 @@
+
+{
+    "index_patterns": "world-cities*",
+    
+    "mappings": {
+        "properties": {
+            # "population": { "type": "long" }, #
+            "geoip": { 
+                "properties": {
+                    "location": "geo_point" 
+                }
+            }
+        }
+    }    
+}

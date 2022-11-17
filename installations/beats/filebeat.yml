@@ -6,5 +6,8 @@ filebeat.inputs:
   paths:
     - /logs/access_log
 
-output.elasticsearch:
-  hosts: ["172.31.3.117:8080"]
+#output.elasticsearch:
+#  hosts: ["172.31.3.117:8080"]
+
+output.logstash:
+  hosts: ["172.31.3.117:5044"]

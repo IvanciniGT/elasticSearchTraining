@@ -1,0 +1,35 @@
+{
+          "ident" => "-",
+           "auth" => "-",
+           "tags" => [
+        [0] "_dissectfailure"
+    ],
+     "@timestamp" => 2022-11-15T07:32:33.000Z,
+       "clientip" => "40.77.167.106",
+    "http_method" => "get",
+        "request" => "/robots.txt",
+    "httpversion" => "1.1",
+       "response" => "404",
+          "geoip" => {
+              "location" => {
+            "lon" => -78.375,
+            "lat" => 36.6534
+        },
+              "dma_code" => 560,
+             "city_name" => "Boydton",
+             "longitude" => -78.375,
+              "timezone" => "America/New_York",
+                    "ip" => "40.77.167.106",
+        "continent_code" => "NA",
+         "country_code3" => "US",
+          "country_name" => "United States",
+           "region_code" => "VA",
+           "region_name" => "Virginia",
+              "latitude" => 36.6534,
+         "country_code2" => "US",
+           "postal_code" => "23917"
+    },
+       "referrer" => "\"-\"",
+          "agent" => "\"Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)\"",
+          "bytes" => "196"
+}
