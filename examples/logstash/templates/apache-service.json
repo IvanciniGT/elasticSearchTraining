@@ -1,0 +1,14 @@
+
+{
+    "index_patterns": "service-apache-*",
+    
+    "mappings": {
+        "properties": {
+            "url": { 
+                "properties": {
+                    "domain": "ip" 
+                }
+            }
+        }
+    }    
+}

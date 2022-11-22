@@ -1,0 +1,38 @@
+{
+    "@timestamp" => 2022-11-22T19:49:01.950Z,
+       "service" => {
+        "name" => "apache"
+    },
+       "summary" => {
+          "up" => 0,
+        "down" => 1
+    },
+         "error" => {
+        "stack_trace" => nil,
+               "type" => "io",
+               "code" => "NET_COULD_NOT_CONNECT",
+            "message" => "Could not connect to '172.31.3.117:8084' with error: dial tcp 172.31.3.117:8084: connect: connection refused"
+    },
+           "url" => {
+          "full" => "http://172.31.3.117:8084",
+        "scheme" => "http",
+        "domain" => "172.31.3.117",
+          "port" => 8084
+    }
+}
+{
+    "@timestamp" => 2022-11-22T19:49:01.950Z,
+       "service" => {
+        "name" => "apache"
+    },
+       "summary" => {
+          "up" => 1,
+        "down" => 0
+    },
+           "url" => {
+          "full" => "http://172.31.3.117:8082",
+        "scheme" => "http",
+        "domain" => "172.31.3.117",
+          "port" => 8082
+    }
+}
