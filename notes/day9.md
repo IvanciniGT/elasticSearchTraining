@@ -259,3 +259,12 @@ Apache < --- Filebeat ----> Logstash -----> ES  < ---- Kibana
 HOST
     Docker
         Container heartbeat
+        
+        
+1 minute: 1Mb
+60 Minutes: 60Mb
+24 hours : 1.5Gb
+Month: 45 Gb
+Year: Half Tb ... Just 1 server
+100 servers
+50 Tb 

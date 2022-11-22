@@ -7,4 +7,5 @@ docker run \
   --volume="/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro" \
   --volume="/proc:/hostfs/proc:ro" \
   --volume="/:/hostfs:ro" \
-  docker.elastic.co/beats/metricbeat:7.12.0
+  docker.elastic.co/beats/metricbeat:7.12.0 \
+    --strict.perms=false 

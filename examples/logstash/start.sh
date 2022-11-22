@@ -1,7 +1,6 @@
 docker run \
     --name mylogstash \
     -it \
-    --rm \
     -p 5044:5044 \
     -p 5045:5045 \
     -p 5046:5046 \
