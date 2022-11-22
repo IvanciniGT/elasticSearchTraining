@@ -1,0 +1,13 @@
+
+heartbeat.monitors:
+    - type: http
+      name: Apache Status
+      service.name: apache
+      hosts: 
+        - "http://172.31.3.117:8082"
+        - "http://172.31.3.117:8084"
+      check.response.status: [200]
+      schedule: '@every 5s'
+
+output.logstash:
+  hosts: ["172.31.3.117:5045"]
