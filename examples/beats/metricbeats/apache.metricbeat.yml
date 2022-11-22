@@ -1,0 +1,27 @@
+metricbeat.config:
+    modules:
+        path: ${path.config}/modules.d/*.yml
+        reload.enabled: true
+
+# When you run metricbeat inside a container
+metricbeat.autodiscover:
+    providers:
+        - type: docker
+          hints.enabled: true
+
+metricbeat.modules:
+    - module: docker
+      metricsets:
+        - container
+        - cpu
+        - diskio
+        - healthcheck
+        - info
+        - memory
+        - network
+      period: 10s
+      enabled: true # false
+      hosts: ["unix:///var/run/docker.sock"]
+      
+output.logstash:
+  hosts: ["172.31.3.117:5046"]

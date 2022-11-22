@@ -251,6 +251,11 @@ And we will do all that with a whole new cluster (big one) that I will provide t
 
 Container
 Apache < --- Filebeat ----> Logstash -----> ES  < ---- Kibana
-       < --- Heartbeat
+       < --- Heartbeat ---> Logstash -----> 
        < --- Metricbeat
             Monitor containers metrics
+            
+            
+HOST
+    Docker
+        Container heartbeat
