@@ -1,0 +1,36 @@
+instances:
+  - name: maestro1
+    dns:
+      - maestro1 
+      - localhost
+    ip:
+      - 127.0.0.1
+
+  - name: maestro2
+    dns:
+      - maestro2
+      - localhost
+    ip:
+      - 127.0.0.1
+
+  - name: data1
+    dns:
+      - data1
+      - localhost
+    ip:
+      - 127.0.0.1
+      - ${IP}
+      
+  - name: data2
+    dns:
+      - data2
+      - localhost
+    ip:
+      - 127.0.0.1
+
+  - name: kibana
+    dns:
+      - kibana
+      - localhost
+    ip:
+      - 127.0.0.1

@@ -1,0 +1,28 @@
+version: "3.0"
+
+services:
+    logstash_heartbeat:
+        image: docker.elastic.co/logstash/logstash:7.12.1
+        container_name: logstash_heartbeat
+        ports:
+            - 5044:5044
+        volumes:
+            - ./pipelines/pipeline_heartbeat.conf:/usr/share/logstash/pipeline/logstash.conf
+            - /home/ubuntu/environment/datos/certs/ca:/etc/logstash/certs/ca
+    logstash_metricbeat:
+        image: docker.elastic.co/logstash/logstash:7.12.1
+        container_name: logstash_metricbeat
+        ports:
+            - 5045:5044
+        volumes:
+            - ./pipelines/pipeline_metricbeat.conf:/usr/share/logstash/pipeline/logstash.conf
+            - /home/ubuntu/environment/datos/certs/ca:/etc/logstash/certs/ca
+    logstash_filebeat:
+        image: docker.elastic.co/logstash/logstash:7.12.1
+        container_name: logstash_filebeat
+        ports:
+            - 5046:5044
+        volumes:
+            - ./pipelines/pipeline_filebeat.conf:/usr/share/logstash/pipeline/logstash.conf
+            - ./index_templates/plantilla_apache.json:/tmp/plantilla_apache.json
+            - /home/ubuntu/environment/datos/certs/ca:/etc/logstash/certs/ca

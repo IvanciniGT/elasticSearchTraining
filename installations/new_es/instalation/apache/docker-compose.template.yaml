@@ -1,0 +1,77 @@
+version: "3.0"
+
+services:
+    mi-apache:
+        image: httpd
+        container_name: mi-apache
+        ports:
+            - 8080:80
+        volumes:
+            # Garantizar que se trabaje con nuestro fichero de conf
+            #  en el cual hemos activado el fichero de log:
+            # /usr/local/apache2/logs/access_log
+            - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+            # Exporto el archivo de log al host
+            - /home/ubuntu/environment/datos/access_log:/usr/local/apache2/logs/access_log
+
+    heartbeat:
+        image: docker.elastic.co/beats/heartbeat:7.12.1
+        container_name: mi-apache-heartbeat
+        volumes:
+            - ./heartbeat/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml:ro
+
+    heartbeat-setup:
+        image: docker.elastic.co/beats/heartbeat:7.12.1
+        container_name: mi-apache-heartbeat-setup
+        command: 
+            - 'sh' 
+            - '-c'
+            - 'heartbeat setup -E setup.kibana.host=http://${IP}:8082 -E setup.kibana.ssl.certificate_authorities=["/etc/logstash/certs/ca/ca.crt"] -E setup.kibana.username=elastic -E setup.kibana.password=password -E output.elasticsearch.hosts=["https://${IP}:9200"] -E output.elasticsearch.ssl.certificate_authorities=["/etc/logstash/certs/ca/ca.crt"] -E output.elasticsearch.username=elastic -E output.elasticsearch.password=password '
+        # '-E setup.kibana.host=https://${IP}:8082 '
+        volumes:
+            - /home/ubuntu/environment/datos/certs/ca:/etc/logstash/certs/ca
+
+
+    filebeat:
+        image: docker.elastic.co/beats/filebeat:7.12.1
+        container_name: mi-apache-filebeat
+        volumes:
+            - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+            - /home/ubuntu/environment/datos/access_log:/tmp/access_log
+
+    filebeat-setup:
+        image: docker.elastic.co/beats/filebeat:7.12.1
+        container_name: mi-apache-filebeat-setup
+        command: 
+            - 'sh' 
+            - '-c'
+            - 'filebeat setup -E setup.kibana.host=http://${IP}:8082 -E setup.kibana.ssl.certificate_authorities=["/etc/logstash/certs/ca/ca.crt"] -E setup.kibana.username=elastic -E setup.kibana.password=password -E output.elasticsearch.hosts=["https://${IP}:9200"] -E output.elasticsearch.ssl.certificate_authorities=["/etc/logstash/certs/ca/ca.crt"] -E output.elasticsearch.username=elastic -E output.elasticsearch.password=password '
+        # '-E setup.kibana.host=https://${IP}:8082 '
+        volumes:
+            - /home/ubuntu/environment/datos/certs/ca:/etc/logstash/certs/ca
+
+
+    metricbeat:
+        image: docker.elastic.co/beats/metricbeat:7.12.1
+        container_name: mi-apache-metricbeat
+        user: root
+
+        volumes:
+          - ./metricbeat/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
+          - /var/run/docker.sock:/var/run/docker.sock:ro
+          - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+          - /proc:/hostfs/proc:ro
+          - /:/hostfs:ro
+
+    metricbeat-setup:
+        image: docker.elastic.co/beats/metricbeat:7.12.1
+        container_name: mi-apache-metricbeat-setup
+        user: root
+        command: 
+            - 'sh' 
+            - '-c'
+            - 'metricbeat setup -E setup.kibana.host=http://${IP}:8082 -E setup.kibana.ssl.certificate_authorities=["/etc/logstash/certs/ca/ca.crt"] -E setup.kibana.username=elastic -E setup.kibana.password=password -E output.elasticsearch.hosts=["https://${IP}:9200"] -E output.elasticsearch.ssl.certificate_authorities=["/etc/logstash/certs/ca/ca.crt"] -E output.elasticsearch.username=elastic -E output.elasticsearch.password=password '
+        # '-E setup.kibana.host=https://${IP}:8082 '
+        volumes:
+            - /home/ubuntu/environment/datos/certs/ca:/etc/logstash/certs/ca
+

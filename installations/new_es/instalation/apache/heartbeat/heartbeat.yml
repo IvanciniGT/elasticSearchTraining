@@ -1,0 +1,11 @@
+heartbeat.monitors:
+- type: http
+  id: mi-apache
+  name: mi-apache
+  schedule: '@every 5s'
+  hosts:
+    - http://172.31.3.117:8080
+  check.response.status: [200]
+
+output.logstash:
+  hosts: ['172.31.3.117:5044']

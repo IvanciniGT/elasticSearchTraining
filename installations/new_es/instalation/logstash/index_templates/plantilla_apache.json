@@ -1,0 +1,29 @@
+{
+    "index_patterns": ["apache-log-*"],
+    "settings": {
+      "index":{
+        "number_of_shards": 3,
+        "number_of_replicas": 1
+      }
+    },
+    "mappings": {
+        "properties":{
+            "bytes": {
+                "type": "integer"
+            },
+            "response": {
+                "type": "integer"
+            },
+            "clientip": {
+                "type": "ip"
+            },
+            "geoip": {
+                "properties":{
+                    "location": {
+                        "type": "geo_point"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -245,7 +245,7 @@ Maybe I have clients from Spain, Italy, Germany, France, Greece
 
 Tomorrow, we will install heartbeat and metric beat...
     We will send that information to ES thru logstash
-We will se how to configure a routing algorithm.
+We will see how to configure a routing algorithm.
 We will activate monitoring in our cluster thru Kibana
 And we will do all that with a whole new cluster (big one) that I will provide to you all.
 
